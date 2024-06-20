@@ -43,6 +43,11 @@ public class TurnoController {
     public ResponseEntity<List<Turno>> buscarTodos(){
         return ResponseEntity.ok(turnoService.listarTodos());
     }
+    @GetMapping("/{id}")
+    public ResponseEntity <Optional<Turno>> buscarPorId(@PathVariable Long id){
+        Optional<Turno> turnoPorId = turnoService.buscarPorId(id);
+        return ResponseEntity.ok(turnoPorId);
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> eliminarTurno(@PathVariable Long id){

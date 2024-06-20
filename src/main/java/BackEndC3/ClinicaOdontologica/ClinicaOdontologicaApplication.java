@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 @SpringBootApplication(exclude= {SecurityAutoConfiguration.class})
 public class ClinicaOdontologicaApplication {
 
-	public static void main(String[] args) {
+	public static void 	main(String[] args) {
 		BasicConfigurator.configure();
 
 		SpringApplication.run(ClinicaOdontologicaApplication.class, args);
