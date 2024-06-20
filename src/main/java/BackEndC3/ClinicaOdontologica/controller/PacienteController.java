@@ -24,10 +24,11 @@ public class PacienteController {
         return ResponseEntity.ok(pacienteService.guardarPaciente(paciente));
     }
 
-    @PutMapping
+    @PutMapping("/actualizar")
     public ResponseEntity<String> actualizarPaciente(@RequestBody Paciente paciente){
         Optional<Paciente> BuscarPaciente = pacienteService.buscarPorId(paciente.getId());
         if (BuscarPaciente.isPresent()){
+            paciente.setFechaIngreso(BuscarPaciente.get().getFechaIngreso());
             pacienteService.actualizarPaciente(paciente);
             return ResponseEntity.ok("Paciente actualizado");
         }else {
@@ -70,6 +71,4 @@ public class PacienteController {
     public ResponseEntity<List<Paciente>> buscarTodos(){
         return ResponseEntity.ok(pacienteService.listarTodos());
     }
-
-
 }
