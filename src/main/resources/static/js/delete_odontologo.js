@@ -11,7 +11,4 @@ function deleteBy(id){
     }).catch(error => {
         console.error(error);
     })
-
-
-
 }
