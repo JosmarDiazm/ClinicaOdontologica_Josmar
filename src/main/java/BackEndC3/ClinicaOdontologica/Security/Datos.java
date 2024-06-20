@@ -18,9 +18,9 @@ public class Datos implements ApplicationRunner {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        String passcode ="JosmarD";
+        String passcode ="admin123";
         String passEncryption= bCryptPasswordEncoder.encode(passcode);
-        Usuario usuario = new Usuario("Josmar", "josmarG", "josmard@gmail.com", passEncryption, UsuarioRole.ROLE_USER);
+        Usuario usuario = new Usuario("Usuario", "usuario123", "usuario@gmail.com", passEncryption, UsuarioRole.ROLE_USER);
         usuarioRepository.save(usuario);
 
     }
