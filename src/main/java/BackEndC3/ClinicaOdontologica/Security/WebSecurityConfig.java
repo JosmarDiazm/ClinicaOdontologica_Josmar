@@ -18,8 +18,8 @@ import java.security.PrivilegedAction;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
-//@Configuration
-//@EnableWebSecurity
+@Configuration
+@EnableWebSecurity
 public class WebSecurityConfig {
     @Autowired
     private UsuarioService usuarioService;
