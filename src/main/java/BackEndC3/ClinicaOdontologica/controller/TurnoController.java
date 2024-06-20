@@ -6,6 +6,7 @@ import BackEndC3.ClinicaOdontologica.Entity.Turno;
 import BackEndC3.ClinicaOdontologica.Service.OdontologoService;
 import BackEndC3.ClinicaOdontologica.Service.PacienteService;
 import BackEndC3.ClinicaOdontologica.Service.TurnoService;
+import org.apache.velocity.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +23,7 @@ public class TurnoController {
     private PacienteService pacienteService;
     @Autowired
     private OdontologoService odontologoService;
+
     public TurnoController(){
         turnoService = new TurnoService();
         pacienteService = new PacienteService();
@@ -36,7 +38,7 @@ public class TurnoController {
             turno.setOdontologo(odontologoBuscado.get());
             return ResponseEntity.ok(turnoService.resgistrarTurno(turno));
         }else{
-            return ResponseEntity.badRequest().build();
+            throw new ResourceNotFoundException("Paciente u Odontologo no encontrado");
         }
     }
     @GetMapping
@@ -51,7 +53,7 @@ public class TurnoController {
             turnoService.eliminarTurno(id);
             return ResponseEntity.ok("Turno Eliminado");
         }else{
-            return ResponseEntity.notFound().build();
+            throw new ResourceNotFoundException("Turno no encontrado");
         }
 
     }
@@ -62,7 +64,7 @@ public class TurnoController {
             turnoService.actualizarTurno(turno);
             return ResponseEntity.ok("Turno actualizado");
         }else{
-            return ResponseEntity.badRequest().build();
+            throw new ResourceNotFoundException("Turno no encontrado");
         }
     }
 }

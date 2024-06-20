@@ -45,17 +45,23 @@ public class OdontologoController {
             odontologoService.actualizarOdontologo(odontologo);
             return ResponseEntity.ok("Odontologo actualizado");
         }else {
-            return ResponseEntity.badRequest().build();
+            throw new ResourceNotFoundException("Odontologo no encontrado");
         }
     }
     @GetMapping("/buscar")
     public ResponseEntity<Optional<Odontologo>>buscarPorMatricula(@RequestParam String matricula){
         Optional<Odontologo> odontologoBuscado = odontologoService.buscarPorMatricula(matricula);
+        if (odontologoBuscado.isEmpty()){
+            throw new ResourceNotFoundException("Odontologo no encontrado");
+        }
         return ResponseEntity.ok(odontologoBuscado);
     }
     @GetMapping("/{id}")
     public ResponseEntity<Optional<Odontologo>>buscarPorId(@PathVariable Long id){
         Optional<Odontologo> odontologoPorId =odontologoService.buscarPorId(id);
+        if (odontologoPorId.isEmpty()){
+            throw new ResourceNotFoundException("Odontologo no encontrado");
+        }
         return ResponseEntity.ok(odontologoPorId);
     }
 }
