@@ -1,0 +1,31 @@
+.container{
+    width: 100%;
+    max-width: none;
+    padding: 0;
+}
+.estilo{
+    
+    text-align: center;
+}
+.td{
+    text-align: center;
+} 
+
+#update_turno_form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row{
+    max-width: none;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#div_odontologo_table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
