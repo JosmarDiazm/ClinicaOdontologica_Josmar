@@ -22,6 +22,5 @@ public class Datos implements ApplicationRunner {
         String passEncryption= bCryptPasswordEncoder.encode(passcode);
         Usuario usuario = new Usuario("Usuario", "usuario123", "usuario@gmail.com", passEncryption, UsuarioRole.ROLE_USER);
         usuarioRepository.save(usuario);
-
     }
 }
