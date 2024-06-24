@@ -12,6 +12,7 @@ import java.util.Optional;
 public class OdontologoService {
     @Autowired
     private OdontologoRepository odontologoRepository;
+
     public Odontologo registrarOdontologo(Odontologo odontologo){
         return odontologoRepository.save(odontologo);
 

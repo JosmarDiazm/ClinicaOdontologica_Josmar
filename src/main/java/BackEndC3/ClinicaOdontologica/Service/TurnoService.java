@@ -12,6 +12,7 @@ import java.util.Optional;
 public class TurnoService {
     @Autowired
     private TurnoRepository turnoRepository;
+
     public Turno resgistrarTurno(Turno turno){
         return turnoRepository.save(turno);
     }

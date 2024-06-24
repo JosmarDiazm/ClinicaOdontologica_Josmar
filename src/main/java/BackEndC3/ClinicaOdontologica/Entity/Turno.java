@@ -28,6 +28,14 @@ public class Turno {
         this.Fecha = fecha;
     }
 
+    public Turno(Paciente paciente, Odontologo odontologo, LocalDate fecha) {
+        this.id = id;
+        this.paciente = paciente;
+        this.odontologo = odontologo;
+        this.Fecha = fecha;
+    }
+
+
     public Turno() {
     }
 

@@ -40,7 +40,7 @@ public class WebSecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((authz)-> authz
-                    .requestMatchers("/post_odontologos.html", "/get_odontologos.html")
+                    .requestMatchers("/post_odontologos.html", "/get_odontologos.html", "/turnos/**")
                         .permitAll()
                         .anyRequest().authenticated()
                 )
